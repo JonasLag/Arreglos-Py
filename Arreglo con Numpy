@@ -1,0 +1,47 @@
+#Se cre una lista 
+data=[50,50,47,97,49,3,53,42,26,74,82,62,37,15,70,27,36,35,48,52,63,64]
+print (data)
+
+#Se llama la libreria "Numpy"
+import numpy as np
+
+#La lista se trasnforma en una rreglo en "Numpy"
+grades = np.array(data)
+print(grades)
+
+#Se compara el comportamiento de ambos tipos de lista.Una de ellas en este formato de "LIsta" y la segunda en un areglo númerico de "Numpa.ndarray"
+print ('---')
+#En este primer caso la "lista" se duplica.
+print (type(data),'x2:', data*2)
+print ('---')
+#En este segundo caso el arreglo se comporta como un vector, al se multiplicado por 2 cada uno de sus elementos.
+#Eltérmino "nd" indica que es una estructura de n dimensione. En este caso es una sola dimension.
+print (type(grades),'x2:', grades*2)
+
+#Muestra el grado del arreglo.En este caso es un arreglo de uno solo grado con 22 elementos.
+grades.shape
+
+# Se accede a cada elemento en particular, iniciando en la posición "Cero" 0.
+grades[-1]
+
+#Obtenemos el promedio del arreglo.
+grades.mean()
+
+#Nuevo arreglo de horas de estudio.
+study_hours = [10.0,11.5,9.0,16.0,9.25,1.0,11.5,9.0,8.5,14.5,15.5,13.75,9.0,8.0,15.5,8.0,9.0,6.0,10.0,12.0,12.5,12.0]
+#Se crea un arrgleo "2D" un "arreglo de arreglos".
+student_data = np.array([study_hours, grades])
+# Se muestra el arreglo.
+student_data
+
+#Se muestra arreglo en "2D".Es un arreglo de 2 componentes, con 22 elementos cada uno.
+student_data.shape
+
+#Navegar en la estructura es necesari indicar la posisición de cada uno de los elemtos.
+student_data[1][0]
+
+#Se obtiene el valor promedio de cada uno de los sub arreglos.
+avg_study = student_data[0].mean()
+avg_grade = student_data[1].mean()
+
+print('Promedio de horas de estudio: {:.2f}\nPromedio de calificaciones: {:.2f}'.format(avg_study, avg_grade))
